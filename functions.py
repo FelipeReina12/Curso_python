@@ -1,0 +1,13 @@
+def mean(my_list):  #Definición de la función 'mean' que toma un argumento 'my_list'
+    the_mean = sum(my_list) / len(my_list)  #Calcula la media sumando los elementos de 'my_list' y dividiendo por la cantidad de elementos
+    return the_mean  #Devuelve el valor de la media calculada
+
+my_mean = mean([1, 2, 3, 4, 5])
+print(my_mean + 10)  #Llama a la función 'mean' con una lista de números y imprime el resultado
+
+print(type(mean), type(sum), type(len))  #Nos muestra que tipo de variables son 
+
+def convert(amount):
+    output = amount *1.75
+    return output
+print(convert(10))
