@@ -19,3 +19,12 @@ def temp(foo):
         print("Cold")
     return temp
 print(temp(10))
+
+def temp(foo):
+    if foo > 25:
+        return 'Hot'
+    elif foo >= 15 and foo <= 25:
+        return 'Warm'
+    elif foo < 15:
+        return 'Cold'
+print(temp(10))
