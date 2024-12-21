@@ -11,3 +11,11 @@ def convert(amount):
     output = amount *1.75
     return output
 print(convert(10))
+
+def temp(foo):
+    if foo > 7:
+        print("Warm")
+    elif foo <= 7:
+        print("Cold")
+    return temp
+print(temp(10))
