@@ -45,35 +45,35 @@
 # print(cuadrados_lista(list))
 
  
-def square(sample):
-    list = []
-    for i in sample:
-        list.append(i**2)
-    return list
-def stadistics(sample):
-    dic = {}
-    dic["Media"] = sum(sample) / len(sample)
-    dic["Varianza"] = sum(square(sample)) / len(sample) - dic["Media"] ** 2
-    dic["Desviacion tipica"] = round(dic["Varianza"] ** 0.5, 2)
-    return dic
-print(stadistics([1,2,3,4,5]))
+# def square(sample):
+#     list = []
+#     for i in sample:
+#         list.append(i**2)
+#     return list
+# def stadistics(sample):
+#     dic = {}
+#     dic["Media"] = sum(sample) / len(sample)
+#     dic["Varianza"] = sum(square(sample)) / len(sample) - dic["Media"] ** 2
+#     dic["Desviacion tipica"] = round(dic["Varianza"] ** 0.5, 2)
+#     return dic
+# print(stadistics([1,2,3,4,5]))
 
 
-def mcd(n, m):
-    rest = 0
-    while(m > 0):
-        rest = m
-        m = n % m
-        n = rest
-    return n
-def mcm(n, m):
-    if n > m:
-        greater = n
-    else:
-        greater = m
-    while (greater % n != 0) or (greater % m != 0):
-        greater += 1
-    return greater
+# def mcd(n, m):
+#     rest = 0
+#     while(m > 0):
+#         rest = m
+#         m = n % m
+#         n = rest
+#     return n
+# def mcm(n, m):
+#     if n > m:
+#         greater = n
+#     else:
+#         greater = m
+#     while (greater % n != 0) or (greater % m != 0):
+#         greater += 1
+#     return greater
 
-print(mcd(24,36))
-print(mcm(24,36))
+# print(mcd(24,36))
+# print(mcm(24,36))
