@@ -34,8 +34,52 @@
 # print(content)  #Imprimimos el contenido del archivo
 
 
-with open("bear.txt") as file:  #abrimos el archivo
-    content = file.read()  #Aqui se almacena el contenido del archivo en la variable content
+# with open("bear.txt") as file:  #abrimos el archivo
+#     content = file.read()  #Aqui se almacena el contenido del archivo en la variable content
 
-with open("first.txt", "w") as file:  #Aqui se crea el archivo
-    file.write(content[:90])  #Se escriben los primeros 90 caracteres del archivo almacenado en la variable content y esos se escriben en el archivo first.txt
+# with open("first.txt", "w") as file:  #Aqui se crea el archivo
+#     file.write(content[:90])  #Se escriben los primeros 90 caracteres del archivo almacenado en la variable content y esos se escriben en el archivo first.txt
+
+
+with open ("files/fruits.txt", "a+") as my_file:  #Con "a" se puede agregar contenido al archivo en el ultimo lugar
+    my_file.write("\nBanana")  #Se escribe el caracter en el archivo y si no existe, se crea el archivo
+    my_file.seek(0)  #Se usa seek para mover el cursor del archivo a la posicion 0, es decir, al principio del archivo
+    content = my_file.read()
+print(content)
+
+
+#Agregue el texto de oso1.txt a oso2.txt. En otras palabras, oso2.txt debe contener su texto y el texto de oso1.txt después de eso.
+with open("bear1.txt") as file:  #Aqui se abre el archivo
+    content = file.read()  #Aqui se lee el contenido del archivo y se almacena en la variable content
+
+with open("bear2.txt", "a") as file:  #En esta parte se abre el archivo y se le agrega contenido al final del archivo
+    file.write(content)
+
+with open("data.txt", "a+") as file:
+    file.seek(0)
+    content = file.read()
+    file.seek(0)
+    file.write(content)
+    file.write(content)
+
+
+#You can read an existing file with Python:
+with open("file.txt") as file:
+    content = file.read()
+
+
+#You can create a new file with Python and write some text on it:
+with open("file.txt", "w") as file:
+    content = file.write("Sample text")
+
+
+#You can append text to an existing file without overwriting it:
+with open("file.txt", "a") as file:
+    content = file.write("More sample text")
+
+
+#You can both append and read a file with:
+with open("file.txt", "a+") as file:
+    content = file.write("Even more sample text")
+    file.seek(0)
+    content = file.read()
