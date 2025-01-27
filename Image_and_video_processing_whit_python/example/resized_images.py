@@ -19,3 +19,18 @@ cv.imwrite ("Lighthouse_resized.jpg", resize_image(cv.imread("Lighthouse.jpg", 1
 cv.imshow("Img_4", resize_image(cv.imread("Moon sinking, sun rising.jpg", 1)))
 cv.waitKey(0)
 cv.imwrite ("Moon_sinking_sun rising_resized.jpg", resize_image(cv.imread("Moon sinking, sun rising.jpg", 1)))
+cv.destroyAllWindows() 
+
+#Otra forma de hacerlo
+import glob
+
+images=glob.glob("*.jpg")
+
+for image in images:
+    img=cv.imread(image,0)
+    re=cv.resize(img,(100,100))
+    cv.imshow("Hey",re)
+    cv.waitKey(500)
+    cv.destroyAllWindows()
+    cv.imwrite("resized_"+image,re)
+
