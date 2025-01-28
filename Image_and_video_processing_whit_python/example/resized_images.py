@@ -21,16 +21,18 @@ cv.waitKey(0)
 cv.imwrite ("Moon_sinking_sun rising_resized.jpg", resize_image(cv.imread("Moon sinking, sun rising.jpg", 1)))
 cv.destroyAllWindows() 
 
-#Otra forma de hacerlo
+
+#Otra forma de hacerlo es con un loop for
 import glob
+# Obtiene una lista de todos los archivos .jpg en el directorio actual
+images = glob.glob("*.jpg")
 
-images=glob.glob("*.jpg")
-
+# Itera sobre cada imagen en la lista de imágenes
 for image in images:
-    img=cv.imread(image,0)
-    re=cv.resize(img,(100,100))
-    cv.imshow("Hey",re)
-    cv.waitKey(500)
-    cv.destroyAllWindows()
-    cv.imwrite("resized_"+image,re)
+    img = cv.imread(image, 0)  #Lee la imagen en escala de grises
+    re = cv.resize(img, (100, 100))  #Redimensiona la imagen a 100x100 píxeles
+    cv.imshow("Hey", re)  #Muestra la imagen redimensionada en una ventana
+    cv.waitKey(500)  #Espera 500 milisegundos antes de cerrar la ventana
+    cv.destroyAllWindows()  #Cierra todas las ventanas abiertas
+    cv.imwrite("resized_" + image, re)  #Guarda la imagen redimensionada con un nuevo nombre
 
