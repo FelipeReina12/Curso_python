@@ -23,9 +23,9 @@ cv.destroyAllWindows()
 
 
 #Otra forma de hacerlo es con un loop for
-import glob
+import glob  #La librería glob nos permite buscar archivos en un directorio
 # Obtiene una lista de todos los archivos .jpg en el directorio actual
-images = glob.glob("*.jpg")
+images = glob.glob("*.jpg")  #Aqui *.jpg significa cualquier archivo con la extension .jpg
 
 # Itera sobre cada imagen en la lista de imágenes
 for image in images:
