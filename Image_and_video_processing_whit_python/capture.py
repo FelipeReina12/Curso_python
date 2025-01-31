@@ -8,14 +8,13 @@ while True:
 
     check, frame = video.read()  #Check y frame son variables que se crean para almacenar la información de la imagen
 
-    print(check)
-    print(frame)
-
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)  #Convertimos la imagen a escala de grises
     # time.sleep(2)  #Aqui podemos poner el tiempo que queramos que dure la ejecución del programa
     cv.imshow("Capturing", gray)
     
     key = cv.waitKey(1)  #En la variable key se almacena la tecla que cuando se pulse hará que se detenga la ejecución del programa
+    print(gray)
+    
     if key == ord("q"):  #ord () es una función que nos permite convertir un caracter en un número
         break  #La tecla q rompera el loop y el programa se detendrá
 print(a)
