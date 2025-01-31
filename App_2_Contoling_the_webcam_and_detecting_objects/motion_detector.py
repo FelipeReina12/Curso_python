@@ -7,7 +7,7 @@ video = cv.VideoCapture(0)  #Aqui podemos poner el nombre de un archivo de video
 while True:
 
     check, frame = video.read()  #Check y frame son variables que se crean para almacenar la información de la imagen
-
+    status = 0 #Creamos una variable para almacenar el estado de la imagen
     gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)  #Convertimos la imagen a escala de grises
     gray = cv.GaussianBlur(gray, (21, 21), 0)  #GaussianBlur es para que la imagen no tenga tanto ruido
 
@@ -24,6 +24,7 @@ while True:
     for contour in cnts:
         if cv.contourArea(contour) < 1000:
             continue
+        status = 1  
         (x, y, w, h) = cv.boundingRect(contour)
         cv.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 3)
 
@@ -31,13 +32,13 @@ while True:
     cv.imshow("Delta Frame", delta_frame)  #Aqui mostramos la imagen actual y la diferencia entre la primera imagen y la imagen actual
     cv.imshow("Threshold frame", thresh_frame)
     cv.imshow("Color frame", frame)
+    
     key = cv.waitKey(1)  #En la variable key se almacena la tecla que cuando se pulse hará que se detenga la ejecución del programa
     
-    print(gray)
-    print(delta_frame)
-
     if key == ord("q"):  #ord () es una función que nos permite convertir un caracter en un número
         break  #La tecla q rompera el loop y el programa se detendrá
+    print(status)
+    
 
 video.release()  #En esta parte se cierra la cámara o el archivo de video que se estaba leyendo
 cv.destroyAllWindows()  #En esta parte se cierran todas las ventanas que se han abierto
