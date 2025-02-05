@@ -8,9 +8,6 @@ mphands = mp.solutions.hands
 mhands = mphands.Hands(False)
 mpdraw = mp.solutions.drawing_utils
 
-p_time = 0
-cTIme = 0
-
 while True:
     success, img = cap.read()
 
@@ -27,11 +24,6 @@ while True:
                     cv2.circle(img, (cx, cy), 5, (255, 0, 255), cv2.FILLED)
             mpdraw.draw_landmarks(img, handLms, mphands.HAND_CONNECTIONS)
     
-    # cTime = time.time()
-    # fps = 1/(cTIme -  p_time)
-    # p_time = cTime
-    # cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
-
     cv2.imshow("Image", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
