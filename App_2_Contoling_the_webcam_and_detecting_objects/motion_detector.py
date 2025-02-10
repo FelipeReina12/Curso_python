@@ -1,6 +1,9 @@
 import cv2 as cv 
+from datetime import datetime
 
 first_frame = None  #Creamos una variable para almacenar la primera imagen
+status_list = [None, None] #Creamos una lista para almacenar el estado de la detección de movimiento
+times = []  #Creamos una lista para almacenar los tiempos de detección de movimiento
 
 video = cv.VideoCapture(0)  #Aqui podemos poner el nombre de un archivo de video o 0 para la cámara que nuestro ordenador tiene por defecto
 
