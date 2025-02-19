@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 from pytz import utc  #pytz es una biblioteca para trabajar con fechas y horas en Python y utc es la zona horaria universal
 
-data = pd.read_csv("C:/Users/Juanf/OneDrive/Documentos/Programación/Curso_python/Data_analisis/reviews.csv", parse_dates= ["Timestamp"])  #Leemos el archivo csv y convertimos la columna Timestamp a fecha y hora
+data = pd.read_csv("C:/Users/102/Documents/FelipeReina12/Curso_python/Data_analisis/reviews.csv", parse_dates= ["Timestamp"])  #Leemos el archivo csv y convertimos la columna Timestamp a fecha y hora
 
 data["Timestamp"] = pd.to_datetime(data["Timestamp"])
 data["Month"] = data["Timestamp"].dt.strftime("%y %u")  #Aqui lo que hacemos es darle formato a la fecha para que nos muestre el año y las semanas
