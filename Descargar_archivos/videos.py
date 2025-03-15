@@ -3,7 +3,7 @@ import os
 
 def download_video(link):
     # Obtener la ruta de la carpeta de Descargas del usuario
-    downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")  
+    downloads_path = os.path.join(os.path.expanduser("~"), "Descargas")  
 
     ydl_opts = {
         "format": "bestvideo[height>=1080]+bestaudio/best[height>=1080]/best",  # Descargar video en 1080p o superior si está disponible
