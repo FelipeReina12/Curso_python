@@ -50,4 +50,12 @@ t3.grid(row=1, column=3)
 l1 = Label(window, text="Kg")
 l1.grid(row=0, column=1)
 
+l2 = Label(window, text= "grams")
+l2.grid(row=2, column= 1)
+
+l3 = Label(window, text= "pounds")
+l3.grid(row=2, column=2)
+
+l4 = Label(window, text= "ounces")
+l4.grid(row=2, column=3)
 window.mainloop()  # Se usa para que la ventana se muestre en pantalla siempre hasta que se cierre
