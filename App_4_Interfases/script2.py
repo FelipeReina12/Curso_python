@@ -1,25 +1,51 @@
 import sqlite3
 
-def create_table():  #Funcion para crear la tabla
-    conn = sqlite3.connect("lite.db")  #Aqui se crea la conexión con la base de datos la cual será llamada "lite.db"
-    cur = conn.cursor()  #Aqui se crea el cursor para ejecutar las sentencias SQL
-    cur.execute("CREATE TABLE IF NOT EXISTS store (item TEXT, quantity INTEGER, picre REAL )")  #Aqui se crea la tabla llamada "store" con las columnas item, quantity y price
-    conn.commit()  #Commit para guardar los cambios
-    conn.close()  #Close se usa para cerrar la conexión con la base de datos
+def create_table():  # Función para crear la tabla
+    conn = sqlite3.connect("lite.db")  # Conexión con la base de datos
+    cur = conn.cursor()  # Cursor para ejecutar sentencias SQL
+    cur.execute("CREATE TABLE IF NOT EXISTS store (item TEXT, quantity INTEGER, price REAL)")  # Se crea la tabla con columnas correctas
+    conn.commit()  # Guardar los cambios
+    conn.close()  # Cerrar la conexión
 
-def insert(item, quantity, price):  #Se crea una función para insertar datos en la tabla
-    conn = sqlite3.connect("lite.db")  #Añadimos la conexión con la base de datos
-    cur = conn.cursor()  #Añadimos tambien el cursor que es para ejecutar las sentencias SQL
-    cur.execute("INSERT INTO store VALUES(?, ?, ?)", (item, quantity, price))  #Aqui se insertan los datos en la tabla, cada ? es un parámetro que se reemplaza con los datos que se le pasan a
-    conn.commit()  #Commit para guardar los cambios
-    conn.close()  #Close se usa para cerrar la conexión con la base de datos
-insert("Coffe Cup", 10, 5)  #Se insertan los datos en la tabla
-
-def view():  #Creamos una vriable para mostrar los datos de la tabla
+def insert(item, quantity, price):  # Función para insertar datos
     conn = sqlite3.connect("lite.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM store")  #Aqui se seleccionan todos los datos de la tabla
-    rows = cur.fetchall()  #rows es una lista de tuplas que contiene todos los datos de la tabla
+    cur.execute("INSERT INTO store (item, quantity, price) VALUES (?, ?, ?)", (item, quantity, price))  # Insertar datos con nombres de columnas
+    conn.commit()
+    conn.close()
+
+def view():  # Función para mostrar los datos de la tabla
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM store")
+    rows = cur.fetchall()
     conn.close()
     return rows
-print(view())  
+
+def delete(item):  # Función para borrar los datos de la tabla
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute("DELETE FROM store WHERE item = ?", (item,))
+    conn.commit()
+    conn.close()
+
+def update(quantity, price, item):  # Función para borrar los datos de la tabla
+    conn = sqlite3.connect("lite.db")
+    cur = conn.cursor()
+    cur.execute("UPDATE store SET quantity = ?, price = ? WHERE item = ?", (quantity, price, item))
+    conn.commit()
+    conn.close()
+
+
+
+
+
+# Crear la tabla y agregar un registro
+create_table()
+# insert("Coffe Cup", 10, 5)
+# insert("Watter", 15, 2)
+update(20, 4, "Watter")
+# delete("Watter")
+# delete("Coffe Cup")
+# Mostrar los registros
+print(view())
