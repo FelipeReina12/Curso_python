@@ -16,6 +16,9 @@ class Account:  #  Clase que representa una cuenta bancaria
             file.write((str(self.balance)))  #  Escribe el saldo actual en el archivo como cadena
             
 class Checking(Account):  #  Clase que representa una cuenta corriente, hereda de Account
+    """This class generates checking account objects"""
+
+    type = "checking"
 
     def __init__(self, filepath, fee):  #  Método inicializador que recibe la ruta del archivo y una tarifa
         Account.__init__(self, filepath)  #  Llama al inicializador de la clase base Account
@@ -24,7 +27,16 @@ class Checking(Account):  #  Clase que representa una cuenta corriente, hereda d
     def transfer(self, amount):  #  Método para transferir una cantidad de dinero
         self.balance = self.balance - amount - self.fee  #  Resta la cantidad y la tarifa del saldo actual
 
-Checking = Checking("/home/zetawiser/Documentos/Programación/Curso_python/OOP/account/balance.txt", 1)  #  Crea una instancia de Checking con la ruta del archivo y una tarifa de 1
-Checking.transfer(310)  #  Realiza una transferencia de 310
-print(Checking.balance)  #  Imprime el saldo después de la transferencia
-Checking.commit()  #  Guarda el saldo actualizado en el archivo
+jacks_Checking = Checking("/home/zetawiser/Documentos/Programación/Curso_python/OOP/account/jack.txt", 1)  #  Crea una instancia de Checking con la ruta del archivo y una tarifa de 1
+jacks_Checking.transfer(310)  #  Realiza una transferencia de 310
+print(jacks_Checking.balance)  #  Imprime el saldo después de la transferencia
+jacks_Checking.commit()  #  Guarda el saldo actualizado en el archivo
+print(jacks_Checking.type)
+
+
+john_Checking = Checking("/home/zetawiser/Documentos/Programación/Curso_python/OOP/account/john.txt", 1)  #  Crea una instancia de Checking con la ruta del archivo y una tarifa de 1
+john_Checking.transfer(310)  #  Realiza una transferencia de 310
+print(john_Checking.balance)  #  Imprime el saldo después de la transferencia
+john_Checking.commit()  #  Guarda el saldo actualizado en el archivo
+print(john_Checking.type)
+print(john_Checking.__doc__)
