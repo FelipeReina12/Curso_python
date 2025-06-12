@@ -3,26 +3,47 @@
         cols: 1
         GridLayout:
             cols: 1
+            padding: 15, 15
+            spacing: 20, 20
             Label:
-                text: "User  login"  # Cambié hint_text a text
+                text: "User  login"
+                font_size: '23sp'
             TextInput:
                 id: username  # Corregido: no se deben usar comillas
                 hint_text: "Username"
+                font_size: '18sp'
             TextInput:
                 id: password  # Corregido: no se deben usar comillas
                 hint_text: "Password"
-            Button:
-                text: "Login"
-                on_press: root.login(root.ids.username.text, root.ids.password.text)
+                font_size: '18sp'
+                password: True
+            RelativeLayout:
+                Button:
+                    size_hint: 0.3, 0.5
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.6}
+                    text: "Login"
+                    font_size: '15sp'
+                    on_press: root.login(root.ids.username.text, root.ids.password.text)
             Label:
                 id: login_wrong
                 text: ""
         GridLayout:
             cols: 2
+            size_hint: 0.2, 0.2
+            padding: 10, 10
+            spacin: 10, 0
             Button:
-                text: "Forgot Password?"  # Corrección de typo
+                text: "Forgot Password?"
+                font_size: '18sp'
+                background_color: 1, 1, 1, 0  
+                opacity: 1 if self.state == 'normal' else 0.5
+                color: 0.1, 0.7, 1, 1
             Button:
                 text: "Sign Up"
+                font_size: '18sp'
+                background_color: 1, 1, 1, 0  
+                opacity: 1 if self.state == 'normal' else 0.5
+                color: 0.1, 0.7, 1, 1
                 on_press: root.sign_up()
 
 <SignUpScreen>:  # Corrección de nombre
