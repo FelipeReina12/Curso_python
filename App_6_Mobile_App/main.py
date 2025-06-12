@@ -62,7 +62,6 @@ class LoginScreenSuccess(Screen):
         else:
             self.ids.quote.text = "Try another feeling."
 
-
 class MainApp(App):
     def build(self):
         return RootWidget()
