@@ -5,18 +5,22 @@
             cols: 1
             padding: 15, 15
             spacing: 20, 20
+
             Label:
                 text: "User  login"
                 font_size: '23sp'
+
             TextInput:
                 id: username  # Corregido: no se deben usar comillas
                 hint_text: "Username"
                 font_size: '18sp'
+
             TextInput:
                 id: password  # Corregido: no se deben usar comillas
                 hint_text: "Password"
                 font_size: '18sp'
                 password: True
+
             RelativeLayout:
                 Button:
                     size_hint: 0.3, 0.5
@@ -27,17 +31,20 @@
             Label:
                 id: login_wrong
                 text: ""
+
         GridLayout:
             cols: 2
             size_hint: 0.2, 0.2
             padding: 10, 10
             spacin: 10, 0
+
             Button:
                 text: "Forgot Password?"
                 font_size: '18sp'
                 background_color: 1, 1, 1, 0  
                 opacity: 1 if self.state == 'normal' else 0.5
                 color: 0.1, 0.7, 1, 1
+
             Button:
                 text: "Sign Up"
                 font_size: '18sp'
@@ -49,23 +56,36 @@
 <SignUpScreen>:  # Corrección de nombre
     GridLayout:
         cols: 1
+        padding: 20, 20
+        spacing: 20, 20
         Label:
             text: "Sign up for a space journey!"
+            font_size: '18sp'
         TextInput:
             id: username
             hint_text: "Username"
+            font_size: '18sp'
+
         TextInput:
             id: password
             hint_text: "Password"
+            font_size: '18sp'
+
         Button:
             text: "Submit"
+            font_size: '18sp'
             on_press: root.add_user(root.ids.username.text, root.ids.password.text)
-
+            background_color: 1, 1, 1, 0  
+            opacity: 1 if self.state == 'normal' else 0.5
+            color: 0.1, 0.7, 1, 1
+            
 <SignUpScreenSuccess>:  # Corrección de nombre
     GridLayout:
         cols: 1
+
         Label:
             text: "Sign up successful!"
+
         Button:
             text: "Login page"
             on_press: root.go_to_login()
@@ -73,17 +93,22 @@
 <LoginScreenSuccess>:
     GridLayout:  # Corrección de "GrindLayout" a "GridLayout"
         cols: 1
+
         Button:
             text: "Logout"
             on_press: root.log_out()  # Agregado "root." para referirse al método
+
         Label:
             text: "How do you feel?"  # Corrección de "fell" a "feel"
+
         TextInput:
             id: feeling
             hint_text: "Things to try: happy, sad, unloved..."
+
         Button:
             text: "Enlighten me"
             on_press: root.get_quote(root.ids.feeling.text)
+
         Label:
             id: quote
             text: ""
@@ -91,9 +116,11 @@
 <RootWidget>:
     LoginScreen:
         name: "login_screen"
+
     SignUpScreen:  # Corrección de nombre
         name: "sign_up_screen"
     SignUpScreenSuccess:  # Corrección de nombre
+
         name: "sign_up_screen_success"
     LoginScreenSuccess:
         name: "login_screen_success"
