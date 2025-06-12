@@ -16,6 +16,8 @@ class LoginScreen(Screen):
 
         if uname in users and users[uname]['password'] == pword:
             self.manager.current = "login_screen_success"
+        else:
+            self.ids.login_wrong.text = "Wrong username or password!"
 
 
 class RootWidget(ScreenManager):
