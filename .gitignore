@@ -12,3 +12,5 @@ build/
 kivi_venv/
 kivy-env/
 kivyenv/
+.venv
+.app_8
