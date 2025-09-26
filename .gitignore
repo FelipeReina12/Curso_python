@@ -1,17 +1,12 @@
 extenciones/
 exten/
-<<<<<<< HEAD
 .qodo/
 dist/
 build/
-=======
-dist/
-build/
-.qodo
->>>>>>> aa943d499216a38d2a2a85087c068e694fc0efba
 kivi_venv/
 kivy-env/
 kivyenv/
 .venv
 .app_8
 app_flask
+venv/
