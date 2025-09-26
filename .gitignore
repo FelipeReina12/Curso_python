@@ -14,3 +14,4 @@ kivy-env/
 kivyenv/
 .venv
 .app_8
+app_flask
