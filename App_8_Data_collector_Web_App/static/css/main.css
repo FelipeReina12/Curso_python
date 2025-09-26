@@ -2,10 +2,11 @@
     --azul_claro: #E9F1FA ;
     --azul_brillante: #00ABE4 ;
     --blanco: #FFFFFF ;
+    --oscuro: #d9d8f4 ;
 }
 
 html, body {
-    background-color: var(--blanco);
+    background-color: var(--oscuro);
 }
 .container {
     margin: 0 auto;
@@ -17,6 +18,8 @@ html, body {
     align-items: center;
     flex-direction: column;
     overflow: hidden;  /*Evita el desbordamiento del contenido*/
+    border-radius: 10px;
+    padding: 20px;
 }
 .container h1 {
     color: var(--azul_brillante);
