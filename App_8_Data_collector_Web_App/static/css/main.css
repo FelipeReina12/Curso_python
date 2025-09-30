@@ -13,7 +13,7 @@ body {
   margin: 0 auto;
   width: 50%;
   height: 100%;
-  background: linear-gradient(to bottom, var(--principal), white);
+  background: linear-gradient(to top, var(--principal), white);
   display: flex;
   justify-content: center;
   align-items: center;
