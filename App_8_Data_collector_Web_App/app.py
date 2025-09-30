@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:12092002@localhost/Height_collector'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://zetawise:12092002@localhost/height_collector'
 db = SQLAlchemy(app)
 
 class Data(db.Model):
@@ -28,6 +28,9 @@ def success():
         return render_template("success.html")
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
+        print("✅ Tablas creadas en la base de datos PostgreSQL")
     app.debug = True
     app.run()
 

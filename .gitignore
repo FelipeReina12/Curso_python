@@ -10,3 +10,4 @@ kivyenv/
 .app_8
 app_flask
 venv/
+flask
