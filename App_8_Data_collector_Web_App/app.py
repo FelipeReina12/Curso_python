@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
-import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://zetawise:12092002@localhost/height_collector'
