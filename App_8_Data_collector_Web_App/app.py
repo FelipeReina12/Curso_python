@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://zetawise:12092002@localhost/height_collector'
+
 db = SQLAlchemy(app)
 
 class Data(db.Model):
@@ -25,6 +27,9 @@ def success():
         email = request.form["email_name"]
         height = request.form["height_name"]
         print(f"email: {email}", f"height: {height}")
+        data = Data(email, height) 
+        db.session.add(data)
+        db.session.commit()
         return render_template("success.html")
 
 if __name__ == "__main__":
