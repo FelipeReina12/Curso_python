@@ -12,10 +12,15 @@
     <div class="container">
         <h1>Collecting height</h1>
         <h3>Please fill entries to get statistics on height </h3>
+        <div class="message">
+            {{text | safe}}
+        </div>
         <form action="{{url_for('success')}}" method="POST">
-        <input class="email" title="Your email will be safe with us" placeholder="Enter your email" type="email" name="email_name" required> <br>
-        <input class="number" title="Your data will be safe with us" placeholder="Enter your height in Cm" type="number" min="50", max = "300" name="height_name" required> <br>
-        <button class="submit_button" type="submit">submit</button>
+            <input class="email" title="Your email will be safe with us" placeholder="Enter your email" type="email"
+                name="email_name" required> <br>
+            <input class="number" title="Your data will be safe with us" placeholder="Enter your height in Cm"
+                type="number" min="50" , max="300" name="height_name" required> <br>
+            <button class="submit_button" type="submit">submit</button>
         </form>
     </div>
     </div>
