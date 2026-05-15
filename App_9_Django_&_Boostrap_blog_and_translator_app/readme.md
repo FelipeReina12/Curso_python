@@ -42,3 +42,7 @@ py manage.py migrate
 
 Ahora para enlazar esa carpeta, nos dirigimos a la carpeta mysite y en el archivo settings.py pasamos la siguiente linea de código:  
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+
+Para conectar la base de datos Post con el HTML, recurrimos al archivo views.py de la carpeta blog.
+
+Importamos de .models la clase Post y luego creamos una clase llamada BlogView donde estará una variable model = Post y otra variable llamada template_name = 'blog.html'
