@@ -30,8 +30,15 @@ En la carpeta mysite ubicamos el archivo settings.py y donde está la lista INST
 
 # Comenzando a desarrollar nuestra app
 
-## Modelos 
+## 1. Models 
 En el archivo models.py organizamos los valores de la base de datos mediante la clase models   
 Luego para aplicar ese modelo a la base de datos aplicamos los siguientes comandos:  
 py manage.py makemigrations   
 py manage.py migrate
+
+## 2. Crear el HTML template
+- Creamos una carpeta en el directorio raiz de nuestro proyecto y app es decir fuera de ellos con el nombre templates.
+- Creamos el archivo blog.html dentro de esa carpeta.   
+
+Ahora para enlazar esa carpeta, nos dirigimos a la carpeta mysite y en el archivo settings.py pasamos la siguiente linea de código:  
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
